@@ -8,8 +8,8 @@ void setup() {
 	pinMode(buttonBpin,INPUT_PULLUP);
  }
  	
- 	void loop() {
- 	  // put your main code here, to run repeatedly:
+ void loop() {
+ // put your main code here, to run repeatedly:
   if (digitalRead(buttonApin)==LOW)
  { 
  	    digitalWrite(LEDPIN,HIGH);
