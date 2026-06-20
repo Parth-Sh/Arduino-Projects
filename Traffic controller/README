@@ -1,1 +1,90 @@
+# Traffic Light Controller Using D Flip-Flops and Logic Gates
+
+## Overview
+
+This project implements a digital traffic light controller using D flip-flops and combinational logic. The controller manages traffic flow between the North–South (NS) and East–West (EW) directions by generating the appropriate red, yellow, and green light signals in a predefined sequence.
+
+The design was developed using state-machine principles, Karnaugh Map (K-Map) simplification, and TTL logic ICs.
+
+## Components Used
+
+* 74LS74 D Flip-Flops
+* 74LS08 AND Gates
+* 74LS32 OR Gates
+* LEDs (Red, Yellow, Green for each direction)
+* Clock source
+* Breadboard and connecting wires
+* 5V Power Supply
+
+## Traffic Signal Outputs
+
+### North–South Direction
+
+* Red LED (RNS)
+* Yellow LED (YNS)
+* Green LED (GNS)
+
+### East–West Direction
+
+* Red LED (REW)
+* Yellow LED (YEW)
+* Green LED (GEW)
+
+A total of six LEDs are used to represent the traffic signals.
+
+## Design Methodology
+
+The traffic controller was designed as a synchronous sequential circuit. State transitions were analyzed and simplified using Karnaugh Maps to obtain the next-state and output equations.
+
+### Next-State Equations
+
+* A⁺ = BCD + AD'
+* B⁺ = B'CD + BC' + BD'
+* C⁺ = A'C'D + CD'
+* D⁺ = D'
+
+### Output Equations
+
+#### North–South Signals
+
+* RNS = A + BD + BC
+* GNS = A'B'
+* YNS = BC'D'
+
+#### East–West Signals
+
+* REW = A'B' + A'C'D'
+* GEW = AD' + BD + BC
+* YEW = AD
+
+## Working Principle
+
+The circuit changes states on every clock pulse. Based on the current state of the flip-flops, combinational logic determines:
+
+1. The next state of the controller.
+2. Which traffic lights should be active.
+
+The system ensures that only one direction receives a green signal at a time while the opposite direction remains stopped by a red signal. Yellow signals are used during transitions between green and red phases to improve traffic safety.
+
+## Implementation
+
+The controller was implemented using D flip-flops for state storage and logic gates for next-state and output generation. LEDs were connected to the output logic to visually demonstrate the operation of the traffic signals.
+
+## Demonstration
+
+A video demonstration of the circuit operation is included in this repository. The LEDs show the traffic light sequence for both North–South and East–West directions according to the designed state transitions.
+
+## Learning Outcomes
+
+* Design of finite state machines (FSMs)
+* Sequential circuit implementation using D flip-flops
+* Karnaugh Map simplification
+* Traffic signal controller design
+* TTL logic circuit implementation
+* State transition analysis
+* Digital system testing and verification
+
+## Author
+
+Digital Logic Design Project
 
