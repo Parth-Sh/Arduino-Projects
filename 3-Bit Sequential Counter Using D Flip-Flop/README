@@ -1,1 +1,95 @@
+# Custom 3-Bit Synchronous Counter Using D Flip-Flops
+
+## Overview
+
+This project demonstrates the design and implementation of a custom 3-bit synchronous counter using D flip-flops and combinational logic gates. The circuit was designed to follow a specific state sequence and was implemented using TTL logic ICs.
+
+## Components Used
+
+* 74LS74 D Flip-Flops
+* 74LS08 AND Gate
+* 74LS32 OR Gate
+* LEDs for output indication
+* Clock source
+* Breadboard and connecting wires
+* Power supply (5V)
+
+## Counter Sequence
+
+The counter follows the custom sequence:
+
+000 → 011 → 100 → 101 → 111 → 110 → 000 → ...
+
+## State Table
+
+| Present State (A B C) | Next State (A⁺ B⁺ C⁺) |
+| --------------------- | --------------------- |
+| 000                   | 011                   |
+| 011                   | 100                   |
+| 100                   | 101                   |
+| 101                   | 111                   |
+| 111                   | 110                   |
+| 110                   | 000                   |
+
+## State Analysis
+
+Since the circuit uses 3 state variables, there are 2³ = 8 possible states.
+
+### Used States
+
+* 000
+* 011
+* 100
+* 101
+* 111
+* 110
+
+### Unused States
+
+* 001
+* 010
+
+Unused states should be directed to a valid state (commonly 000) to prevent the circuit from entering unintended loops or unpredictable behavior.
+
+## Derived State Equations
+
+The next-state equations obtained through logic simplification are:
+
+* Dₐ = AB' + C
+* Dᵦ = A'C' + AC
+* D𝒸 = B'
+
+These equations drive the D inputs of the flip-flops and determine the next state of the counter.
+
+## Asynchronous Inputs
+
+The Set (S) and Reset (R) inputs of the D flip-flops are asynchronous controls.
+
+### Functions
+
+* Set (S) forces Q = 1
+* Reset (R) forces Q = 0
+
+### Important Notes
+
+* These inputs are typically active LOW.
+* They must remain HIGH during normal operation.
+* Accidental activation overrides the clocked operation and disrupts the intended counting sequence.
+
+## Working Principle
+
+On each clock pulse, the D flip-flops update their outputs according to the derived next-state equations. The LEDs connected to the outputs display the current state of the counter. As the clock advances, the counter repeatedly cycles through the predefined six-state sequence.
+
+## Demonstration
+
+A video demonstration of the circuit operation is included in this repository, showing the LEDs transitioning through the designed counting sequence.
+
+## Learning Outcomes
+
+* Design of synchronous sequential circuits
+* State table and state diagram development
+* Next-state equation derivation
+* Implementation using D flip-flops
+* Practical use of TTL logic gates
+* Analysis of unused states and counter reliability
 
